@@ -23,6 +23,7 @@ class chatbook:
     def set_private_variable_static(value):
         chatbook.__user_id = value
         return chatbook.__user_id
+    
 
     def login(self, username, password):
         # Simulate login logic (for demonstration purposes)
