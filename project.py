@@ -1,12 +1,28 @@
 #create class name chatbook
 class chatbook:
+
+    __user_id = 0  # Private class variable to keep track of user IDs
+
     def __init__(self):
-        print("Chatbook class constructor called")
+        #print("Chatbook class constructor called")
+        self.id = chatbook.__user_id + 1  # Assign a unique ID to each instance
+        chatbook.__user_id += 1
         self.name = "Chatbook"
         self.username = ""
         self.password = ""
         self.logged_in = False
-        self.menu()
+        self.__variable = "This is a private variable"
+        #self.menu()
+
+    #create static method to access the private variable
+    @staticmethod
+    def access_private_variable():
+        return chatbook.__user_id
+    
+    @staticmethod
+    def set_private_variable_static(value):
+        chatbook.__user_id = value
+        return chatbook.__user_id
 
     def login(self, username, password):
         # Simulate login logic (for demonstration purposes)
@@ -87,7 +103,7 @@ class chatbook:
         else:
             print("You are not logged in.")
 
-#cretae an object of the chatbook class 
-chatbook_app = chatbook()     
-#call the menu method to display the menu options
-chatbook_app.menu() 
+# #cretae an object of the chatbook class 
+# chatbook_app = chatbook()     
+# #call the menu method to display the menu options
+# chatbook_app.menu() 
