@@ -30,11 +30,11 @@ class chatbook:
         elif user_input == "2":           
             self.login()
         elif user_input == "3":
-           pass  # Write post functionality is not implemented yet.
+           self.write_post()
         elif user_input == "4":
-           pass  # View posts functionality is not implemented yet.
+           self.view_posts()
         elif user_input == "5":
-            pass  # Logout functionality is not implemented yet.
+            self.logout()
         else:
             print("Invalid input. Please try again.")
             exit()
@@ -58,12 +58,34 @@ class chatbook:
         else:            
             username = input("Enter your email id / username: ")
             password = input("Enter your password: ")
-        if username == self.username and password == self.password:
-            self.logged_in = True
-            print(f"Login successful for user: {username}")
-        else:
-            print("Login failed. Invalid email id or password.")       
+            if username == self.username and password == self.password:
+                self.logged_in = True
+                print(f"Login successful for user: {username}")
+            else:
+                print("Login failed. Invalid email id or password.")       
     
+    #create method for posting a message
+    def write_post(self):
+        if self.logged_in:
+            post_content = input("Enter your post content: ")
+            print(f"Post created: {post_content}")
+        else:
+            print("You must be logged in to write a post. Please login first.")
+
+    #create method for viewing posts
+    def view_posts(self):
+        if self.logged_in:
+            print("Viewing posts... (functionality not implemented yet)")
+        else:
+            print("You must be logged in to view posts. Please login first.")
+
+    #create method for logout
+    def logout(self):
+        if self.logged_in:
+            self.logged_in = False
+            print("You have been logged out.")
+        else:
+            print("You are not logged in.")
 
 #cretae an object of the chatbook class 
 chatbook_app = chatbook()     

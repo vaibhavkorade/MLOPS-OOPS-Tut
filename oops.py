@@ -25,3 +25,4 @@ emp1 = employee()
 emp1.display()  # Output: Name: Samuel, Age: 20, Salary: 50000, Designation: Software Engineer  
 
 print( type(emp1) )  # Output: <class '__main__.employee'>
+
