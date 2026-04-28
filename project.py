@@ -6,6 +6,7 @@ class chatbook:
         self.username = ""
         self.password = ""
         self.logged_in = False
+        self.menu()
 
     def login(self, username, password):
         # Simulate login logic (for demonstration purposes)
@@ -25,24 +26,46 @@ class chatbook:
                           """)
 
         if user_input == "1":
-            print("Signup functionality is not implemented yet.")
-        elif user_input == "2":
-            username = input("Enter your username: ")
-            password = input("Enter your password: ")
-            self.login(username, password)
+            self.signup()
+        elif user_input == "2":           
+            self.login()
         elif user_input == "3":
-            if self.logged_in:
-                print("Write a post functionality is not implemented yet.")
-            else:
-                print("Please login to write a post.")
+           pass  # Write post functionality is not implemented yet.
         elif user_input == "4":
-            print("View posts functionality is not implemented yet.")
+           pass  # View posts functionality is not implemented yet.
         elif user_input == "5":
-            if self.logged_in:
-                self.logged_in = False
-                print("You have been logged out.")
-            else:
-                print("You are not logged in.")
+            pass  # Logout functionality is not implemented yet.
+        else:
+            print("Invalid input. Please try again.")
+            exit()
 
-#cretae an object of the chatbook class
-chatbook_app = chatbook()                
+        self.menu()  # Call the menu method again to allow continuous interaction until the user decides to exit.
+
+    #create a method for signup
+    def signup(self):
+        # Simulate signup logic (for demonstration purposes)
+        username = input("Enter your email id: ")
+        password = input("Enter your password: ")
+        self.username = username
+        self.password = password        
+        print(f"Signup successful for user: {username}")
+
+    #create a method for login
+    def login(self):
+        # Simulate login logic (for demonstration purposes)
+        if self.username == "" or self.password == "":
+            print("No user registered. Please signup first by pressing 1.")
+        else:            
+            username = input("Enter your email id / username: ")
+            password = input("Enter your password: ")
+        if username == self.username and password == self.password:
+            self.logged_in = True
+            print(f"Login successful for user: {username}")
+        else:
+            print("Login failed. Invalid email id or password.")       
+    
+
+#cretae an object of the chatbook class 
+chatbook_app = chatbook()     
+#call the menu method to display the menu options
+chatbook_app.menu() 
